@@ -82,10 +82,9 @@ module "blog_alb" {
 
 module "blog_sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "5.3.0"
+  version = "4.13.0"
   name    = "${var.environment.name}-blog"
 
-  #vpc_id  = data.aws_vpc.default.id
   vpc_id  = module.blog_vpc.vpc_id
 
   ingress_rules       = ["http-80-tcp", "https-443-tcp"]
